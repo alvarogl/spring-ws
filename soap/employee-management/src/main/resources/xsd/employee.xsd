@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost/hrms"
+  xmlns:tns="http://localhost/hrms">
+  <element name="GetEmployeeRequest" type="tns:GetEmployeeRequest"/>
+  <element name="GetEmployeeResponse" type="tns:GetEmployeeResponse"/>
+  <element name="GetAllEmployeesRequest" type="tns:GetAllEmployeesRequest"/>
+  <element name="GetAllEmployeesResponse" type="tns:GetAllEmployeesResponse"/>
+  <element name="DeleteEmployeeRequest" type="tns:DeleteEmployeeRequest"/>
+  <element name="DeleteEmployeeResponse" type="tns:DeleteEmployeeResponse"/>
+
+  <complexType name="GetEmployeeRequest">
+    <sequence>
+      <element name="employeeId" type="long"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="GetEmployeeResponse">
+    <sequence>
+      <element name="EmployeeDetails" type="tns:EmployeeDetails"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="EmployeeDetails">
+    <sequence>
+      <element name="employeeId" type="long"/>
+      <element name="firstName" type="string"/>
+      <element name="lastName" type="string"/>
+      <element name="location" type="string"/>
+      <element name="zipCode" type="int"/>
+    </sequence>
+  </complexType>
+  <complexType name="GetAllEmployeesRequest"/>
+  <complexType name="GetAllEmployeesResponse">
+    <sequence>
+      <element name="EmployeeDetails" type="tns:EmployeeDetails" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="DeleteEmployeeRequest">
+    <sequence>
+      <element name="employeeId" type="long"/>
+    </sequence>
+  </complexType>
+  <complexType name="DeleteEmployeeResponse">
+    <sequence>
+      <element name="status" type="boolean"/>
+    </sequence>
+  </complexType>
+</schema>
