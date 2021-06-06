@@ -21,5 +21,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Build with Maven REST
+      run: mvn -B package --file rest/employee-management/pom.xml
+    - name: Build with Maven SOAP
+      run: mvn -B package --file soap/employee-management/pom.xml
